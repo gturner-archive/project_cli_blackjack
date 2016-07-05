@@ -1,3 +1,5 @@
+require 'pry'
+
 class Card
   attr_accessor :rank, :suit
 
@@ -37,10 +39,22 @@ end
 
 class Game
 
-  def deal_cards(player)
-    card = deck.stack_of_cards.sample
-    player.hand << card
-    deck.stack_of_cards.delete card
+  def deal_cards(deck, player, n)
+    n.times do
+      card = deck.stack_of_cards.sample
+      player.hand << card
+      deck.stack_of_cards.delete card
+    end
+  end
+
+  def display_cards(player, dealer)
+    puts "Player has:"
+    player.hand.each do |card|
+    puts "#{card.rank} of #{card.suit}"
+  end
+    puts "Dealer has:"
+
+     puts "#{dealer.hand.first.rank} of #{dealer.hand.first.suit}"
   end
 
   def play
@@ -48,8 +62,14 @@ class Game
     deck = Deck.new
     player = Player.new
     dealer = Player.new
+    deal_cards(deck, player, 2)
+    deal_cards(deck, dealer, 2)
+    display_cards(player, dealer)
+
 
 
   end
 
 end
+
+Game.new.play
