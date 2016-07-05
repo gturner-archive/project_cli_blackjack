@@ -3,7 +3,7 @@
 2. initialize dealer
 3. initialize player
 
-  
+
 4. deal 2 to player
 5. deal 2 to dealer
    display cards
@@ -11,7 +11,7 @@
 7. if player 21 player wins, dealer loses
 
 
-  loop 
+  loop
    player makes move (hit or pass)
      check for blackjack - player wins
      check for bust - dealer wins
@@ -20,12 +20,12 @@
 
    until dealer has >= 17
     add dealer card
+    if dealer has 17 ace is treated at 1
     check for blackjack - dealer wins
     check  for bust - player wins
   end
 
   compare scores and declare winner
 
-   
+
   end
-  
