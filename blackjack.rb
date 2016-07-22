@@ -95,10 +95,12 @@ class Game
     dealer = Player.new
     deal_cards(deck, player, 2)
     deal_cards(deck, dealer, 2)
+    player.calculate_score
+    dealer.calculate_score
     until victory?(player, dealer) ||bust?(player, dealer)
+      display_cards(player, dealer)
       player.calculate_score
       dealer.calculate_score
-      display_cards(player, dealer)
     end
 
 
